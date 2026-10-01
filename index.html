@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Примеры работ · веб-разработка</title>
+<meta name="description" content="Сайты, телеграм-боты и автоматизация: примеры работ с описанием задач и результата.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0c0e13;--panel:#13161d;--line:#222733;--ink:#eef1f6;--muted:#8d98a9;
+  --accent:#6ea8fe;--accent-soft:rgba(110,168,254,.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+
+.nav{position:sticky;top:0;z-index:20;background:rgba(12,14,19,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:650;font-size:15.5px;letter-spacing:-.01em}
+.brand span{color:var(--muted);font-weight:400}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.filters button{font:inherit;font-size:13px;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:30px;padding:7px 14px;cursor:pointer;transition:.15s}
+.filters button:hover{color:var(--ink);border-color:#36404f}
+.filters button.on{background:var(--accent-soft);color:var(--accent);border-color:rgba(110,168,254,.35)}
+
+.hero{max-width:1240px;margin:0 auto;padding:64px 28px 44px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.03em;font-weight:680;max-width:17ch;margin-bottom:20px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:17px;line-height:1.62;color:var(--muted);max-width:620px}
+.meta{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.meta div .v{font-size:25px;font-weight:650;letter-spacing:-.02em}
+.meta div .l{font-size:12.5px;color:var(--muted);margin-top:3px}
+
+.works{max-width:1240px;margin:0 auto;padding:10px 28px 40px;display:flex;flex-direction:column;gap:22px}
+.w{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;transition:border-color .18s,transform .18s}
+.w:hover{border-color:#39455a}
+.w.rev{grid-template-columns:1fr 1.25fr}
+.w.rev .shot{order:2}
+.shot{position:relative;background:#0f1218;border-right:1px solid var(--line);overflow:hidden;min-height:330px;display:flex;align-items:center;justify-content:center;padding:26px}
+.w.rev .shot{border-right:none;border-left:1px solid var(--line)}
+.shot img{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,.07);box-shadow:0 14px 36px rgba(0,0,0,.4);display:block}
+.shot .mob{position:absolute;right:20px;bottom:18px;width:84px;border-radius:9px;border:2px solid #1b202a;box-shadow:0 12px 26px rgba(0,0,0,.5)}
+.body{padding:34px 36px;display:flex;flex-direction:column;justify-content:center}
+.kind{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:650;margin-bottom:12px}
+.w h2{font-size:24px;line-height:1.22;letter-spacing:-.018em;font-weight:650;margin-bottom:12px}
+.task{font-size:14.8px;line-height:1.62;color:#a8b3c3;margin-bottom:18px}
+.res{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:20px}
+.res div .v{font-size:19px;font-weight:650;color:var(--ink)}
+.res div .l{font-size:12px;color:var(--muted);margin-top:2px;max-width:17ch;line-height:1.35}
+.stack{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:22px}
+.stack span{font-size:12px;color:#9aa6b6;border:1px solid var(--line);border-radius:7px;padding:6px 10px}
+.go{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:var(--accent);text-decoration:none;align-self:flex-start}
+.go:hover{gap:12px}
+
+.foot{max-width:1240px;margin:0 auto;padding:34px 28px 70px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.foot a{color:var(--ink);text-decoration:none;border-bottom:1px solid #36404f}
+.hidden{display:none}
+
+@media(max-width:900px){
+  .nav .in{padding:12px 16px;flex-direction:column;align-items:flex-start}
+  .hero{padding:40px 16px 30px}
+  .works{padding:6px 16px 30px}
+  .w,.w.rev{grid-template-columns:1fr}
+  .w.rev .shot{order:0;border-left:none;border-bottom:1px solid var(--line)}
+  .shot{border-right:none;border-bottom:1px solid var(--line);min-height:0;padding:18px}
+  .shot .mob{width:62px;right:14px;bottom:12px}
+  .body{padding:24px 20px}
+  .w h2{font-size:20px}
+  .meta{gap:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="in">
+  <div class="brand">Примеры работ <span>· веб-разработка и автоматизация</span></div>
+  <div class="filters">
+    <button class="on" data-f="all">Все</button>
+    <button data-f="site">Сайты</button>
+    <button data-f="bot">Боты</button>
+    <button data-f="auto">Автоматизация</button>
+    <button data-f="app">Веб-приложения</button>
+  </div>
+</div></div>
+
+<div class="hero">
+  <div class="eyebrow">Портфолио</div>
+  <h1>Сайты, которые <em>приносят заявки</em>, и программы, которые работают без вас</h1>
+  <p>Собрала примеры по направлениям: от лендинга с онлайн-оплатой до бота приёма заказов и слежения за ценами конкурентов. У каждой работы задача, решение и результат.</p>
+  <div class="meta">
+    <div><div class="v">6 лет</div><div class="l">в коммерческой разработке</div></div>
+    <div><div class="v">Сайты и боты</div><div class="l">фронтенд и серверная часть</div></div>
+    <div><div class="v">От 2 дней</div><div class="l">срок небольшой задачи</div></div>
+  </div>
+</div>
+
+<div class="works">
+
+  <article class="w" data-k="site">
+    <div class="shot"><img src="img/01.jpg" alt="Лендинг стоматологии"><img class="mob" src="img/01-m.jpg" alt=""></div>
+    <div class="body">
+      <div class="kind">Лендинг · медицина</div>
+      <h2>Сайт клиники с записью на приём</h2>
+      <p class="task">Клинике нужен был сайт, который объясняет уровень услуг и собирает записи. Первый экран отвечает на вопрос о цене и гарантии, дальше услуги с ценами, врачи, отзывы и форма записи.</p>
+      <div class="res">
+        <div><div class="v">1,8 с</div><div class="l">загрузка первого экрана</div></div>
+        <div><div class="v">5 блоков</div><div class="l">с кнопкой записи</div></div>
+      </div>
+      <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>адаптив</span></div>
+      <a class="go" href="https://silokon.github.io/portfolio/01-klinika/" target="_blank" rel="noopener">Открыть работу →</a>
+    </div>
+  </article>
+
+  <article class="w rev" data-k="site">
+    <div class="shot"><img src="img/02.jpg" alt="Лендинг IT-платформы"><img class="mob" src="img/02-m.jpg" alt=""></div>
+    <div class="body">
+      <div class="kind">Лендинг · IT-продукт</div>
+      <h2>Сайт онлайн-сервиса с тарифами</h2>
+      <p class="task">Задача была объяснить сложный продукт за один экран и подвести к пробному периоду. Продукт разложен по шагам, тарифы сравниваются в таблице, в конце блок частых вопросов.</p>
+      <div class="res">
+        <div><div class="v">2 формы</div><div class="l">захвата в одном потоке</div></div>
+        <div><div class="v">Тёмная тема</div><div class="l">с анимацией при прокрутке</div></div>
+      </div>
+      <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>анимация</span></div>
+      <a class="go" href="https://silokon.github.io/portfolio/02-saas/" target="_blank" rel="noopener">Открыть работу →</a>
+    </div>
+  </article>
+
+  <article class="w" data-k="site">
+    <div class="shot"><img src="img/03.jpg" alt="Лендинг с оплатой"><img class="mob" src="img/03-m.jpg" alt=""></div>
+    <div class="body">
+      <div class="kind">Коммерческий проект</div>
+      <h2>Лендинг с онлайн-оплатой и видео</h2>
+      <p class="task">Заказчику нужно было продавать продукт без менеджера. Сверстала по макету, встроила видео, подключила оплату картой и по СБП с чеками, заявки сами уходят в Google Таблицу.</p>
+      <div class="res">
+        <div><div class="v">2 клика</div><div class="l">от тарифа до оплаты</div></div>
+        <div><div class="v">Без ручной работы</div><div class="l">заявки попадают в таблицу сами</div></div>
+      </div>
+      <div class="stack"><span>HTML</span><span>PHP</span><span>ЮKassa</span><span>Google Sheets API</span></div>
+      <a class="go" href="https://silokon.github.io/portfolio/03-oplata/" target="_blank" rel="noopener">Открыть работу →</a>
+    </div>
+  </article>
+
+  <article class="w rev" data-k="bot">
+    <div class="shot"><img src="img/04.jpg" alt="Телеграм-бот заявок"><img class="mob" src="img/04-m.jpg" alt=""></div>
+    <div class="body">
+      <div class="kind">Телеграм-бот</div>
+      <h2>Приём заявок и оплата прямо в переписке</h2>
+      <p class="task">Владелец терял заказы, пока отвечал вручную. Бот ведёт клиента по шагам, принимает оплату картой и по СБП, уведомляет хозяина в первую минуту и собирает заявки в панель со статусами.</p>
+      <div class="res">
+        <div><div class="v">41 секунда</div><div class="l">среднее время оформления заказа</div></div>
+        <div><div class="v">87%</div><div class="l">оплат проходят без менеджера</div></div>
+      </div>
+      <div class="stack"><span>Python</span><span>aiogram 3</span><span>PostgreSQL</span><span>ЮKassa</span><span>Docker</span></div>
+      <a class="go" href="https://silokon.github.io/portfolio/04-bot/" target="_blank" rel="noopener">Открыть работу →</a>
+    </div>
+  </article>
+
+  <article class="w" data-k="auto">
+    <div class="shot"><img src="img/05.jpg" alt="Парсер маркетплейсов"><img class="mob" src="img/05-m.jpg" alt=""></div>
+    <div class="body">
+      <div class="kind">Автоматизация</div>
+      <h2>Слежение за ценами конкурентов</h2>
+      <p class="task">Продавец вручную проверял цены соседей по категории. Скрипт обходит карточки Wildberries и Ozon по расписанию, сравнивает со вчерашним днём и присылает отчёт, а на падение цены шлёт уведомление.</p>
+      <div class="res">
+        <div><div class="v">4 200</div><div class="l">карточек в отслеживании</div></div>
+        <div><div class="v">6 минут</div><div class="l">полный обход каталога</div></div>
+      </div>
+      <div class="stack"><span>Python</span><span>Playwright</span><span>PostgreSQL</span><span>Excel</span><span>cron</span></div>
+      <a class="go" href="https://silokon.github.io/portfolio/05-parser/" target="_blank" rel="noopener">Открыть работу →</a>
+    </div>
+  </article>
+
+  <article class="w rev" data-k="app">
+    <div class="shot"><img src="img/06.jpg" alt="Бронирование помещений"><img class="mob" src="img/06-m.jpg" alt=""></div>
+    <div class="body">
+      <div class="kind">Веб-приложение</div>
+      <h2>Бронирование мест и переговорных</h2>
+      <p class="task">Администратор вёл брони в тетради и путал время. Теперь занятость видна в реальном времени, бронь оплачивается онлайн, а система сама блокирует занятые слоты и оставляет перерыв на уборку.</p>
+      <div class="res">
+        <div><div class="v">0</div><div class="l">пересечений по времени</div></div>
+        <div><div class="v">минус 6 часов</div><div class="l">ручной работы в неделю</div></div>
+      </div>
+      <div class="stack"><span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Stripe</span></div>
+      <a class="go" href="https://silokon.github.io/portfolio/06-booking/" target="_blank" rel="noopener">Открыть работу →</a>
+    </div>
+  </article>
+
+  <article class="w" data-k="site">
+    <div class="shot"><img src="img/07.jpg" alt="Ускорение сайта"><img class="mob" src="img/07-m.jpg" alt=""></div>
+    <div class="body">
+      <div class="kind">Доработка готового сайта</div>
+      <h2>Исправление ошибок и ускорение</h2>
+      <p class="task">Сайт грузился восемь секунд, на телефоне разъезжалась вёрстка, а заявки уходили на мёртвую почту. Нашла причины, починила форму и мобильную версию, ускорила загрузку. Переделывать сайт целиком не понадобилось.</p>
+      <div class="res">
+        <div><div class="v">с 31 до 94</div><div class="l">оценка скорости на телефоне</div></div>
+        <div><div class="v">2 дня</div><div class="l">заняла вся работа</div></div>
+      </div>
+      <div class="stack"><span>WordPress</span><span>PHP</span><span>JavaScript</span><span>webp</span></div>
+      <a class="go" href="https://silokon.github.io/portfolio/07-speed/" target="_blank" rel="noopener">Открыть работу →</a>
+    </div>
+  </article>
+
+</div>
+
+<div class="foot">
+  <span>Связь: <a href="https://kwork.ru/user/sirenka05" target="_blank" rel="noopener">Kwork</a> и <a href="https://github.com/Silokon" target="_blank" rel="noopener">GitHub</a></span>
+  <span>Коммерческие проекты показываю без названий и данных заказчиков. Цифры в примерах условные</span>
+</div>
+
+<script>
+const btns = document.querySelectorAll('.filters button');
+const works = document.querySelectorAll('.w');
+btns.forEach(b => b.addEventListener('click', () => {
+  btns.forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  const f = b.dataset.f;
+  works.forEach(w => w.classList.toggle('hidden', f !== 'all' && w.dataset.k !== f));
+}));
+</script>
+</body>
+</html>
